@@ -29,7 +29,7 @@ Param(
 # connectionName - if not serverless360
 
 # If the subscription Id isn't provided, exit 
-If ($subscriptionId -eq '') {
+If ($subscriptionId -eq '' -or  $resourceLocation -eq '' -or $resourceGroupName -eq '' -or $apiKey -eq '') {
     Write-Host "A required value was not provided, please provide all required values and try again..."
     Write-Host "Required Values: subcriptionId, resourceLocation, resourceGroupName, and apiKey. Note api and connetionName default to serverless360 - override as needed"
     exit

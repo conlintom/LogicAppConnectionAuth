@@ -1,9 +1,9 @@
 # LogicAppConnectionAuth
-PowerShell Script to get an authorization link and complete auth for an OAuth connector.
+PowerShell Script to provide the API key to a Logic App connector.
 
 ## What this script does
 
-This script will retrieve a consent link for a connection (and can also create the connection at the same time) for an OAuth Logic Apps connector.  It will then open the consent link and complete authorization to enable a connection.  This can be used after deployment of connections to make sure a Logic App is working end-to-end.
+This script will provide the API Key Logic Apps connectors that require authentication using an API Key. This can be used after deployment of a Logic App with connectors that require API Key authentication. 
 
 ## How to use
 
@@ -17,3 +17,6 @@ Run this script and substitute out parameters as needed:
 | ConnectionName | Name of the connection resource to create or generate authorization for |
 | SubscriptionId | Azure Subscription ID to use for connection creation/authorization |
 | createConnection | set to `false` if the connection was already deployed |
+| useVault | set to `false` if secrets will be passed to the script via arguments |
+
+This script can also be run as post deployment as a task of an Pipeline in Azure DevOps. In this case, it is recommended to store secrets in Azure KeyVault and access these secrets via a Variable Group. Provide secrets to the release tasks in the Parameters section. 
